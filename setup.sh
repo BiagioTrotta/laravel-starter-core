@@ -3,9 +3,9 @@ set -e
 
 echo "⚙️ Setup Laravel Starter Core"
 
-cp .env.example .env
+cp .env.example .env || true
 
-composer install
+composer install --prefer-dist --no-progress --no-interaction
 
 php artisan key:generate
 
