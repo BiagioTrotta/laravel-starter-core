@@ -11,7 +11,11 @@ php artisan key:generate
 
 php artisan migrate --seed
 
-npm install
+if [ ! -d "node_modules" ]; then
+  echo "📦 Installing Node dependencies..."
+  npm install
+fi
+
 npm run build
 
 echo "✅ Installazione completata"
