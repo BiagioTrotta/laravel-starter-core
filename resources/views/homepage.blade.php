@@ -1,4 +1,4 @@
-<x-layout.app title="Homepage">
+<x-layout.app title="{{ $title }}">
     <x-slot:title>{{ $title }}</x-slot:title>
 
     <div class="container">

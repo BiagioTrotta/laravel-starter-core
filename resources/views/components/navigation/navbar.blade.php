@@ -3,7 +3,7 @@
 
         {{-- Brand --}}
         <a class="navbar-brand fw-bold text-primary" href="{{ route('homepage') }}">
-            Laravel-starter-core
+            {{ config('app.name') }}
         </a>
 
         {{-- Toggle --}}
@@ -30,6 +30,17 @@
                         Home
                     </a>
                 </li>
+
+                @auth
+                @if(auth()->user()->email === 'admin@example.com')
+                <li class="nav-item">
+                    <a class="nav-link {{ request()->routeIs('admin.*') ? 'active fw-semibold' : '' }}"
+                        href="{{ route('admin.users.index') }}">
+                        Admin
+                    </a>
+                </li>
+                @endif
+                @endauth
 
                 <li class="nav-item">
                     <a class="nav-link" href="#">Features</a>
