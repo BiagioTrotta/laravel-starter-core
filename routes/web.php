@@ -4,16 +4,14 @@ use App\Http\Controllers\Admin\UsersController;
 use App\Http\Controllers\PageController;
 use Illuminate\Support\Facades\Route;
 
-// Rotta Homepage
+// Public routes
 Route::get('/', [PageController::class, 'index'])->name('homepage');
 
-//Pannello Admin
+// Admin routes
 Route::middleware(['auth', 'admin'])
     ->prefix('admin')
     ->name('admin.')
     ->group(function () {
-
         Route::get('/users', [UsersController::class, 'index'])
             ->name('users.index');
-
     });
